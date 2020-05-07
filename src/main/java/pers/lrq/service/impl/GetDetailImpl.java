@@ -2,9 +2,9 @@ package pers.lrq.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pers.lrq.domain.Dimg;
-import pers.lrq.domain.ShowAndImg;
-import pers.lrq.domain.ShowList;
+import pers.lrq.domain.Selectimg;
+import pers.lrq.domain.SelectShowAndImg;
+import pers.lrq.domain.SelectShowList;
 import pers.lrq.mapper.GetImgDetailMapper;
 import pers.lrq.mapper.GetShowListMapper;
 import pers.lrq.service.GetDetail;
@@ -21,15 +21,17 @@ public class GetDetailImpl implements GetDetail {
     private GetShowListMapper getShowListMapper;
 
     @Override
-    public ShowAndImg getDetail(Integer rid) {
+    public SelectShowAndImg geSelectDetail(Integer tid) {
         // 获取showlist对象
-        ShowList showList = getShowListMapper.getShowById(rid);
+        SelectShowList selectShowList = getShowListMapper.getSelectShowById(tid);
 
         // 获取img对象
-        List<Dimg> dimgList = getImgDetailMapper.getImgById(rid);
+        List<Selectimg> selectimgList = getImgDetailMapper.getSelectImgById(tid);
 
-        ShowAndImg showAndImg = new ShowAndImg(dimgList,showList);
+        SelectShowAndImg selectShowAndImg = new SelectShowAndImg(selectimgList, selectShowList);
 
-        return showAndImg;
+        return selectShowAndImg;
     }
+
+
 }

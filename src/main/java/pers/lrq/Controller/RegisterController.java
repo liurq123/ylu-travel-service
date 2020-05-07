@@ -51,6 +51,7 @@ public class RegisterController {
             ResultInfo r = new ResultInfo(0,"注册失败，请联系管理员");
             return r;
         }
+//        request.getSession().setAttribute("uid",user.getId());
         user.setPassword("");
         ResultInfo r = new ResultInfo(1,"注册成功",user);
         return r;

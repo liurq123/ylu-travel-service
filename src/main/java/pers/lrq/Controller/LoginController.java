@@ -75,6 +75,8 @@ public class LoginController {
             ResultInfo r = new ResultInfo(0,"用户或密码错误！");
             return r;
         }
+        // 登陆成功，将userid存入session域中(注册成功也要进行登陆)
+        session.setAttribute("uid",Users.getId());
         ResultInfo r = new ResultInfo(1,Users);
         return r;
     }

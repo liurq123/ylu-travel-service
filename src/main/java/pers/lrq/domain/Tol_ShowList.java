@@ -3,21 +3,21 @@ package pers.lrq.domain;
 import java.io.Serializable;
 import java.util.List;
 
-public class Tol_ShowList implements Serializable {
-    private List<ShowList> data;
+public class Tol_ShowList<T> implements Serializable {
+    private List<T> data;
     private boolean hasMore;
 
-    public Tol_ShowList(List<ShowList> data,boolean hasMore){
+    public Tol_ShowList(List<T> data, boolean hasMore){
         this.data = data;
         this.hasMore = hasMore;
     }
 
 
-    public List<ShowList> getData() {
+    public List<T> getData() {
         return data;
     }
 
-    public void setData(List<ShowList> data) {
+    public void setData(List<T> data) {
         this.data = data;
     }
 

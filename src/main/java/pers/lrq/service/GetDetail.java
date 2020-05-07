@@ -1,7 +1,7 @@
 package pers.lrq.service;
 
-import pers.lrq.domain.ShowAndImg;
+import pers.lrq.domain.SelectShowAndImg;
 
 public interface GetDetail {
-    public ShowAndImg getDetail(Integer rid);
+    public SelectShowAndImg geSelectDetail(Integer tid);
 }

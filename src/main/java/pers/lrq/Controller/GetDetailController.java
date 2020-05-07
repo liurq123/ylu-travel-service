@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import pers.lrq.domain.ShowAndImg;
+import pers.lrq.domain.SelectShowAndImg;
 import pers.lrq.service.impl.GetDetailImpl;
 import pers.lrq.utils.ResultInfo;
-
+/*
+    获取页面详情
+ */
 @Controller
 @CrossOrigin(origins="http://localhost:3000", allowCredentials="true")
 public class GetDetailController {
@@ -18,10 +20,11 @@ public class GetDetailController {
     @Autowired
     private GetDetailImpl getDetail;
 
-    @RequestMapping(value = "/getDetail",method = RequestMethod.GET)
+    @RequestMapping(value = "/getSelectDetail",method = RequestMethod.GET)
     @ResponseBody
-    public ResultInfo getDetail(String rid){
-        ShowAndImg showAndImg = getDetail.getDetail(Integer.parseInt(rid));
-        return new ResultInfo(1,showAndImg);
+    public ResultInfo getDetail(String tid){
+        SelectShowAndImg selectShowAndImg = getDetail.geSelectDetail(Integer.parseInt(tid));
+        System.out.println("SelectShowAndImg是："+selectShowAndImg);
+        return new ResultInfo(1, selectShowAndImg);
     }
 }
