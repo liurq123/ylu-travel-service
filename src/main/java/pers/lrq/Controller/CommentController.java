@@ -26,6 +26,7 @@ public class CommentController {
     @RequestMapping(value = "/addComment",method = RequestMethod.POST)
     @ResponseBody
     public ResultInfo addComment(@RequestBody CommentBean commentBean, HttpServletRequest request){
+        // iiiiiiiiiii
         //前端数据与后端接受数据，会进行数据自动转换
         //System.out.println(commentBean);
         // 因为服务器是提高给多个用户使用的，sesion也是公用的，所以不能只存入一个用户id
