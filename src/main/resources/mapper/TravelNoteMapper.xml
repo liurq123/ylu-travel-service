@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pers.lrq.mapper.TravelNoteMapper">
+    <insert id="addTravelNote" parameterType="pers.lrq.domain.TravelNoteBean">
+        insert into travelnote(uid,date,title,cover,godate,daynumber,who,avgmoney,thinking,touTitle1,touThinking1,img1
+        ,touTitle2,touThinking2,img2,touTitle3,touThinking3,img3,summary) values
+        (#{uid},#{date},#{title},#{cover},#{godate},#{daynumber},#{who},#{avgmoney},#{thinking},#{touTitle1},#{touThinking1},#{img1}
+        ,#{touTitle2},#{touThinking2},#{img2},#{touTitle3},#{touThinking3},#{img3},#{summary});
+    </insert>
+
+    <select id="getTravelNote" resultType="pers.lrq.domain.TravelNoteBean">
+        select tra.*,user.username,user.name
+        from travelnote as tra ,yluuser as user
+        where tra.uid = user.id
+    </select>
+
+    <select id="getTravelNoteById" parameterType="integer" resultType="pers.lrq.domain.TravelNoteBean">
+        select tra.*,user.username,user.name
+        from
+        (select * from travelnote where yjid = #{yjid} ) as tra,yluuser as user
+        where tra.uid = user.id
+    </select>
+</mapper>

@@ -27,4 +27,18 @@ public class GetShowListImpl implements GetShowList {
         }
         return result;
     }
+
+    @Override
+    public List<SelectShowList> getDelicious(Integer page) {
+        List<SelectShowList> result = null;
+        //防止空指针异常
+        try {
+            result =  getShowListMapper.getDeliciousShowList(page);
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+        return result;
+    }
+
 }

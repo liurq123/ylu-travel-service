@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface GetImgDetailMapper {
     public List<Selectimg> getSelectImgById(Integer tid);
+
+    public List<Selectimg> getDeliciousImgById(Integer fid);
 }

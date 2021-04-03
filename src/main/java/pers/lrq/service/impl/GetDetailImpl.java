@@ -33,5 +33,13 @@ public class GetDetailImpl implements GetDetail {
         return selectShowAndImg;
     }
 
+    @Override
+    public SelectShowAndImg getDeliciousDetail(Integer fid) {
+        SelectShowList selectShowList = getShowListMapper.getDeliciousShowById(fid);
+        List<Selectimg> deliciousImgList = getImgDetailMapper.getDeliciousImgById(fid);
+        SelectShowAndImg selectShowAndImg = new SelectShowAndImg(deliciousImgList,selectShowList);
+        return selectShowAndImg;
+    }
+
 
 }

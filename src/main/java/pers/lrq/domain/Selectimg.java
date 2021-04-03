@@ -4,8 +4,16 @@ import java.io.Serializable;
 
 public class Selectimg implements Serializable {
     private int tid;
+    private int fid;
     private String img;
 
+    public int getFid() {
+        return fid;
+    }
+
+    public void setFid(int fid) {
+        this.fid = fid;
+    }
 
     public int getTid() {
         return tid;
@@ -28,6 +36,7 @@ public class Selectimg implements Serializable {
     public String toString() {
         return "Selectimg{" +
                 "tid=" + tid +
+                ", fid=" + fid +
                 ", img='" + img + '\'' +
                 '}';
     }

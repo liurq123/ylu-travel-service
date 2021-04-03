@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pers.lrq.mapper.CommentMapper">
+    <insert id="addComment" parameterType="pers.lrq.domain.CommentBean" >
+        insert into tcomment(uid,tid,content,score,date) values
+        (#{uid},#{tid},#{content},#{score},#{date});
+    </insert>
+
+    <insert id="addDelComment" parameterType="pers.lrq.domain.CommentBean">
+        insert into fcomment(uid,fid,content,score,date) values
+        (#{uid},#{fid},#{content},#{score},#{date});
+    </insert>
+
+    <select id="getCommentById" parameterType="integer" resultType="pers.lrq.domain.CommentBean">
+        select com.uid,com.tid,com.content,com.score,com.date,user.username,user.name from (
+                    select uid,tid,content,score,date
+                    from tcomment
+                    where tid=#{tid}
+                    ) as com , yluuser as user
+                    where com.uid = user.id;
+    </select>
+
+    <select id="getDelCommentById" parameterType="integer" resultType="pers.lrq.domain.CommentBean">
+        select com.uid,com.fid,com.content,com.score,com.date,user.username,user.name from (
+                    select uid,fid,content,score,date
+                    from fcomment
+                    where fid=#{fid}
+                    ) as com , yluuser as user
+                    where com.uid = user.id;
+    </select>
+</mapper>

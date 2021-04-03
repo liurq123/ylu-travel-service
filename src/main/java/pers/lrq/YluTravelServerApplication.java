@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class YluTravelServerApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(YluTravelServerApplication.class, args);
     }
 

@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class SelectShowList implements Serializable {
     private int tid;
+    private int fid;
     private String title;
     private String address;
     private double price;
@@ -18,6 +19,14 @@ public class SelectShowList implements Serializable {
 
     public void setTid(int tid) {
         this.tid = tid;
+    }
+
+    public int getFid() {
+        return fid;
+    }
+
+    public void setFid(int fid) {
+        this.fid = fid;
     }
 
     public String getTitle() {
@@ -72,6 +81,7 @@ public class SelectShowList implements Serializable {
     public String toString() {
         return "SelectShowList{" +
                 "tid=" + tid +
+                ", fid=" + fid +
                 ", title='" + title + '\'' +
                 ", address='" + address + '\'' +
                 ", price=" + price +

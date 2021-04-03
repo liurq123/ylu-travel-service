@@ -23,7 +23,17 @@ public class GetDetailController {
     @RequestMapping(value = "/getSelectDetail",method = RequestMethod.GET)
     @ResponseBody
     public ResultInfo getDetail(String tid){
+        System.out.println("我到/getSelectDetail，tid是："+tid);
         SelectShowAndImg selectShowAndImg = getDetail.geSelectDetail(Integer.parseInt(tid));
+        System.out.println("SelectShowAndImg是："+selectShowAndImg);
+        return new ResultInfo(1, selectShowAndImg);
+    }
+
+    @RequestMapping(value = "/getDeliciousDetail",method = RequestMethod.GET)
+    @ResponseBody
+    public ResultInfo getDeliciousDetail(String fid){
+        System.out.println("我到/getDeliciousDetail，fid是："+fid);
+        SelectShowAndImg selectShowAndImg = getDetail.getDeliciousDetail(Integer.parseInt(fid));
         System.out.println("SelectShowAndImg是："+selectShowAndImg);
         return new ResultInfo(1, selectShowAndImg);
     }

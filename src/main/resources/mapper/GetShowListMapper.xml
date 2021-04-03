@@ -10,4 +10,12 @@
         select tid,title,address,price,cover,intro,openTime from tourist where tid = #{tid};
     </select>
 
+    <select id="getDeliciousShowList" parameterType="integer" resultType="pers.lrq.domain.SelectShowList">
+        select fid,title,address,price,cover,intro  from food  limit #{page},10;
+    </select>
+
+    <select id="getDeliciousShowById" parameterType="integer" resultType="pers.lrq.domain.SelectShowList">
+        select fid,title,address,price,cover,intro  from food  where fid=#{fid};
+    </select>
+
 </mapper>
